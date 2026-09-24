@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Node.js Activity</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+      padding: 30px;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: auto;
+      background: white;
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    h1 {
+      color: #333;
+    }
+
+    h2 {
+      margin-top: 30px;
+      color: #555;
+    }
+
+    button {
+      padding: 10px 15px;
+      margin: 5px;
+      border: none;
+      border-radius: 5px;
+      background: #007bff;
+      color: white;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #0056b3;
+    }
+
+    input {
+      padding: 10px;
+      margin: 5px;
+      width: 250px;
+    }
+
+    textarea {
+      width: 90%;
+      height: 100px;
+      padding: 10px;
+      margin: 5px;
+    }
+
+    pre {
+      background: #222;
+      color: #00ff88;
+      padding: 15px;
+      border-radius: 5px;
+      overflow-x: auto;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <h1>Node.js Server Activity</h1>
+
+  <!-- =====================================================
+       EVENT EMITTER
+       ===================================================== -->
+
+  <h2>1. EventEmitter</h2>
+
+  <input
+    type="text"
+    id="name"
+    placeholder="Enter your name"
+  >
+
+  <button onclick="greet()">
+    Greet
+  </button>
+
+  <button onclick="exitEvent()">
+    Exit Event
+  </button>
+
+  <!-- =====================================================
+       EVENT LOOP
+       ===================================================== -->
+
+  <h2>2. Event Loop Demo</h2>
+
+  <button onclick="eventLoop()">
+    Run Event Loop Demo
+  </button>
+
+  
+
+  <h2>3. File CRUD</h2>
+
+  <textarea
+    id="text"
+    placeholder="Enter text..."
+  ></textarea>
+
+  <br>
+
+  <button onclick="createFile()">
+    CREATE / OVERWRITE
+  </button>
+
+  <button onclick="readFile()">
+    READ
+  </button>
+
+  <button onclick="updateFile()">
+    UPDATE / APPEND
+  </button>
+
+  <button onclick="deleteFile()">
+    DELETE / CLEAR
+  </button>
+
+
+  <h2>Output</h2>
+
+  <pre id="output">Click a button to see the result...</pre>
+
+</div>
+
+
+<script>
+
+
+  function showOutput(data) {
+    document.getElementById('output').textContent =
+      JSON.stringify(data, null, 2);
+  }
+
+
+ 
+
+  async function greet() {
+
+    const name =
+      document.getElementById('name').value || 'Guest';
+
+    const response =
+      await fetch(
+        `/greet?name=${encodeURIComponent(name)}`
+      );
+
+    const data = await response.json();
+
+    showOutput(data);
+  }
+
+
+  // --------------------------------------------------------
+  // EXIT EVENT
+  // --------------------------------------------------------
+
+  async function exitEvent() {
+
+    const response =
+      await fetch('/exit');
+
+    const data =
+      await response.json();
+
+    showOutput(data);
+  }
+
+
+  // --------------------------------------------------------
+  // EVENT LOOP
+  // --------------------------------------------------------
+
+  async function eventLoop() {
+
+    const response =
+      await fetch('/eventloop');
+
+    const data =
+      await response.json();
+
+    showOutput(data);
+  }
+
+
+  // --------------------------------------------------------
+  // CREATE FILE
+  // --------------------------------------------------------
+
+  async function createFile() {
+
+    const text =
+      document.getElementById('text').value;
+
+    const response =
+      await fetch('/create', {
+
+        method: 'POST',
+
+        headers: {
+          'Content-Type': 'application/json'
+        },
+
+        body: JSON.stringify({
+          text: text
+        })
+
+      });
+
+    const data =
+      await response.json();
+
+    showOutput(data);
+  }
+
+
+  // --------------------------------------------------------
+  // READ FILE
+  // --------------------------------------------------------
+
+  async function readFile() {
+
+    const response =
+      await fetch('/read');
+
+    const data =
+      await response.json();
+
+    showOutput(data);
+  }
+
+
+  // --------------------------------------------------------
+  // UPDATE FILE
+  // --------------------------------------------------------
+
+  async function updateFile() {
+
+    const text =
+      document.getElementById('text').value;
+
+    const response =
+      await fetch('/update', {
+
+        method: 'PUT',
+
+        headers: {
+          'Content-Type': 'application/json'
+        },
+
+        body: JSON.stringify({
+          text: text
+        })
+
+      });
+
+    const data =
+      await response.json();
+
+    showOutput(data);
+  }
+
+
+  // --------------------------------------------------------
+  // DELETE FILE
+  // --------------------------------------------------------
+
+  async function deleteFile() {
+
+    const response =
+      await fetch('/delete', {
+
+        method: 'DELETE'
+
+      });
+
+    const data =
+      await response.json();
+
+    showOutput(data);
+  }
+
+</script>
+
+</body>
+</html>

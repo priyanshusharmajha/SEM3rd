@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>ABC Limited Company</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #f5f7ff, #eef7ff);
+      color: #1f2937;
+    }
+
+    .navbar {
+      background: #1d4ed8;
+      padding: 18px 30px;
+      display: flex;
+      gap: 18px;
+      justify-content: center;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.12);
+    }
+
+    .navbar a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 700;
+      padding: 10px 16px;
+      border-radius: 8px;
+      transition: 0.3s ease;
+    }
+
+    .navbar a:hover {
+      background: #ffffff;
+      color: #1d4ed8;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 35px auto;
+      background: #ffffff;
+      border-radius: 18px;
+      padding: 30px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    }
+
+    h2 {
+      text-align: center;
+      color: #1d4ed8;
+      margin-bottom: 25px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      overflow: hidden;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+    }
+
+    th {
+      background: #1d4ed8;
+      color: white;
+      padding: 14px 12px;
+      text-align: center;
+      font-size: 15px;
+    }
+
+    td {
+      padding: 14px 12px;
+      text-align: center;
+      border-bottom: 1px solid #e5e7eb;
+    }
+
+    tr:nth-child(even) {
+      background: #f8fbff;
+    }
+
+    tr:hover {
+      background: #edf4ff;
+    }
+
+    .cart-btn {
+      background: #22c55e;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      padding: 9px 16px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.2s ease;
+    }
+
+    .cart-btn:hover {
+      background: #16a34a;
+    }
+
+    .footer {
+      margin-top: 30px;
+      padding-top: 18px;
+      border-top: 1px solid #e5e7eb;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      font-size: 15px;
+    }
+
+    .footer a {
+      color: #1d4ed8;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    
+  </style>
+</head>
+<body>
+
+  <div class="navbar">
+    <a href="#">Home</a>
+    <a href="#">Subject</a>
+    <a href="#">Payment</a>
+    <a href="#">Login</a>
+  </div>
+
+  <div class="container">
+    <h2>Subject List</h2>
+
+    <table>
+      <tr>
+        <th>S.No</th>
+        <th>Subject</th>
+        <th>Price</th>
+        <th>Book</th>
+        <th>Add to Cart</th>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>Physics</td>
+        <td>350</td>
+        <td>1</td>
+        <td><button class="cart-btn">Click me</button></td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>Chemistry</td>
+        <td>450</td>
+        <td>2</td>
+        <td><button class="cart-btn">Click me</button></td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>Biology</td>
+        <td>200</td>
+        <td>3</td>
+        <td><button class="cart-btn">Click me</button></td>
+      </tr>
+      <tr>
+        <td>4</td>
+        <td>Maths</td>
+        <td>300</td>
+        <td>4</td>
+        <td><button class="cart-btn">Click me</button></td>
+      </tr>
+      <tr>
+        <td>5</td>
+        <td>English</td>
+        <td>400</td>
+        <td>5</td>
+        <td><button class="cart-btn">Click me</button></td>
+      </tr>
+    </table>
+
+    <div class="footer">
+      <p><b>Logo</b> ABC Limited Company</p>
+      <a href="https://maps.google.com" target="_blank">Location (Google Map)</a>
+    </div>
+  </div>
+
+</body>
+</html>
