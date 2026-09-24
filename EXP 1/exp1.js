@@ -11,5 +11,5 @@ emitter.on('exit', () => {
     console.log('application closed');
 });
 
-emitter.emit('greet', 'Ratan');
+emitter.emit('greet', 'priyanshu');
 emitter.emit('exit');
