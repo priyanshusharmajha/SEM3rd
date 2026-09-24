@@ -1,3 +1,5 @@
+'use strict';
+
 const fs=require('fs');
 //create
 fs.writeFile('message.txt','Hello world', (err) => {
